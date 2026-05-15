@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polizei und Verkehr – Wortschatz</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937;line-height:1.6}
+header{background:linear-gradient(135deg,#1cb0f6,#58cc02);color:white;text-align:center;padding:60px 20px}
+header h1{font-size:2.7rem;margin-bottom:10px}
+.container{max-width:1100px;margin:auto;padding:35px 20px}
+.card{background:white;border-radius:24px;padding:26px;margin-bottom:24px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+h2{margin-bottom:16px;color:#111827}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.vocab{background:#eef2ff;border-left:6px solid #1cb0f6;border-radius:18px;padding:16px;font-weight:800}
+.vocab strong{color:#3730a3}
+button{background:#58cc02;color:white;border:none;border-radius:16px;padding:13px 20px;font-weight:900;cursor:pointer;box-shadow:0 5px 0 #46a302;margin:8px 8px 8px 0}
+.blue{background:#1cb0f6;box-shadow:0 5px 0 #1689c7}
+.red{background:#dc2626;box-shadow:0 5px 0 #991b1b}
+.option{background:#f3f4f6;color:#111;box-shadow:none;width:100%;text-align:left}
+.option:hover{background:#dcfce7}
+.question{font-size:1.4rem;font-weight:900;text-align:center;margin:20px 0}
+.hint{background:#eef2ff;color:#3730a3;border-radius:18px;padding:14px;font-weight:900;text-align:center;margin-bottom:16px}
+input{width:100%;padding:14px;border:2px solid #d1d5db;border-radius:14px;font-size:1rem;margin:8px 0}
+.feedback{display:none;margin-top:12px;padding:14px;border-radius:16px;font-weight:900}
+.correct{display:block;background:#dcfce7;color:#166534}
+.wrong{display:block;background:#fee2e2;color:#991b1b}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.stat{background:#f3f4f6;border-radius:999px;padding:10px 14px;font-weight:900}
+.progress{height:18px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin:15px 0}
+.bar{height:100%;width:0%;background:#58cc02;transition:.3s}
+footer{text-align:center;padding:30px;color:#666}
+@media(max-width:700px){header h1{font-size:2rem}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>👮 Polizei, Sicherheit und Verkehr</h1>
+<p>Wortschatzübung für Anfänger</p>
+</header>
+
+<main class="container">
+
+<section class="card">
+<h2>📚 Wortschatz</h2>
+<div class="grid">
+<div class="vocab"><strong>die Polizei</strong><br>la policía</div><div class="vocab"><strong>der Polizist</strong><br>el policía</div><div class="vocab"><strong>die Polizistin</strong><br>la policía</div><div class="vocab"><strong>die Polizeistation</strong><br>la comisaría</div><div class="vocab"><strong>das Polizeiauto</strong><br>el coche policial</div><div class="vocab"><strong>die Uniform</strong><br>el uniforme</div><div class="vocab"><strong>helfen</strong><br>ayudar</div><div class="vocab"><strong>kontrollieren</strong><br>controlar</div><div class="vocab"><strong>schützen</strong><br>proteger</div><div class="vocab"><strong>arbeiten</strong><br>trabajar</div><div class="vocab"><strong>der Verkehr</strong><br>el tráfico</div><div class="vocab"><strong>die Straße</strong><br>la calle</div><div class="vocab"><strong>die Ampel</strong><br>el semáforo</div><div class="vocab"><strong>das Auto</strong><br>el auto</div><div class="vocab"><strong>das Fahrrad</strong><br>la bicicleta</div><div class="vocab"><strong>der Bus</strong><br>el autobús</div><div class="vocab"><strong>der Fahrer</strong><br>el conductor</div><div class="vocab"><strong>langsam</strong><br>lento</div><div class="vocab"><strong>schnell</strong><br>rápido</div><div class="vocab"><strong>sicher</strong><br>seguro</div><div class="vocab"><strong>die Sicherheit</strong><br>la seguridad</div><div class="vocab"><strong>stoppen</strong><br>detener</div><div class="vocab"><strong>fahren</strong><br>conducir / ir</div><div class="vocab"><strong>die Kontrolle</strong><br>el control</div><div class="vocab"><strong>der Unfall</strong><br>el accidente</div>
+</div>
+</section>
+
+<section class="card">
+<h2>🎯 Übung 1 – Wähle die richtige Übersetzung</h2>
+<div class="stats">
+<div class="stat">Punkte: <span id="score1">0</span></div>
+<div class="stat">Frage: <span id="num1">1</span> / 10</div>
+</div>
+<div class="progress"><div class="bar" id="bar1"></div></div>
+<div class="hint" id="hint1"></div>
+<div class="question" id="question1"></div>
+<div class="grid" id="options1"></div>
+<div id="feedback1" class="feedback"></div>
+<button class="blue" onclick="nextMultiple()">Nächste Aufgabe</button>
+</section>
+
+<section class="card">
+<h2>✍️ Übung 2 – Ergänze das Wort</h2>
+<div class="stats">
+<div class="stat">Richtig: <span id="score2">0</span> / 8</div>
+</div>
+<div id="sentenceBox"></div>
+<button onclick="checkSentences()">Prüfen</button>
+<button class="red" onclick="resetSentences()">Zurücksetzen</button>
+<div id="feedback2" class="feedback"></div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 – Deutsch Anfänger</p>
+</footer>
+
+<script>
+const VOCAB = [["die Polizei", "la policía"], ["der Polizist", "el policía"], ["die Polizistin", "la policía"], ["die Polizeistation", "la comisaría"], ["das Polizeiauto", "el coche policial"], ["die Uniform", "el uniforme"], ["helfen", "ayudar"], ["kontrollieren", "controlar"], ["schützen", "proteger"], ["arbeiten", "trabajar"], ["der Verkehr", "el tráfico"], ["die Straße", "la calle"], ["die Ampel", "el semáforo"], ["das Auto", "el auto"], ["das Fahrrad", "la bicicleta"], ["der Bus", "el autobús"], ["der Fahrer", "el conductor"], ["langsam", "lento"], ["schnell", "rápido"], ["sicher", "seguro"], ["die Sicherheit", "la seguridad"], ["stoppen", "detener"], ["fahren", "conducir / ir"], ["die Kontrolle", "el control"], ["der Unfall", "el accidente"]];
+const SENTENCES = [{"q": "Die ____ hilft den Menschen.", "a": "Polizei", "hint": "la policía"}, {"q": "Der ____ kontrolliert den Verkehr.", "a": "Polizist", "hint": "el policía"}, {"q": "Die ____ trägt eine Uniform.", "a": "Polizistin", "hint": "la policía"}, {"q": "Das Auto stoppt an der ____.", "a": "Ampel", "hint": "semáforo"}, {"q": "Die Straße ist ____.", "a": "sicher", "hint": "segura"}, {"q": "Der ____ fährt langsam.", "a": "Bus", "hint": "autobús"}, {"q": "Die Polizei schützt die ____.", "a": "Sicherheit", "hint": "seguridad"}, {"q": "Es gibt einen ____ auf der Straße.", "a": "Unfall", "hint": "accidente"}];
+
+let current = 0;
+let score1 = 0;
+let quiz = [];
+
+function shuffle(arr){
+return [...arr].sort(()=>Math.random()-0.5);
+}
+
+function normalize(t){
+return String(t).trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+
+function startMultiple(){
+quiz = shuffle(VOCAB).slice(0,10);
+current = 0;
+score1 = 0;
+document.getElementById("score1").innerText = score1;
+loadMultiple();
+}
+
+function loadMultiple(){
+let item = quiz[current];
+document.getElementById("num1").innerText = current + 1;
+document.getElementById("bar1").style.width = Math.round((current/quiz.length)*100) + "%";
+document.getElementById("hint1").innerText = "Was bedeutet dieses Wort?";
+document.getElementById("question1").innerText = item[0];
+
+let wrong = shuffle(VOCAB.map(x=>x[1]).filter(x=>x!==item[1])).slice(0,3);
+let options = shuffle([...wrong,item[1]]);
+let box = document.getElementById("options1");
+box.innerHTML = "";
+
+options.forEach(opt=>{
+let btn = document.createElement("button");
+btn.className = "option";
+btn.innerText = opt;
+btn.onclick = ()=>checkMultiple(opt,item[1]);
+box.appendChild(btn);
+});
+
+document.getElementById("feedback1").className = "feedback";
+document.getElementById("feedback1").innerText = "";
+}
+
+function checkMultiple(selected,answer){
+let fb = document.getElementById("feedback1");
+if(selected === answer){
+score1++;
+document.getElementById("score1").innerText = score1;
+fb.className = "feedback correct";
+fb.innerText = "✅ Richtig!";
+} else {
+fb.className = "feedback wrong";
+fb.innerHTML = "❌ Falsch. Richtige Antwort: <strong>" + answer + "</strong>";
+}
+}
+
+function nextMultiple(){
+current++;
+if(current >= quiz.length){
+document.getElementById("bar1").style.width = "100%";
+document.getElementById("question1").innerText = "🎉 Fertig!";
+document.getElementById("hint1").innerText = "Du hast " + score1 + " von " + quiz.length + " richtig.";
+document.getElementById("options1").innerHTML = "";
+return;
+}
+loadMultiple();
+}
+
+function renderSentences(){
+let box = document.getElementById("sentenceBox");
+box.innerHTML = "";
+
+SENTENCES.forEach((s,i)=>{
+box.innerHTML += `
+<div style="border-top:2px solid #e5e7eb;padding-top:16px;margin-top:16px">
+<p><strong>${i+1}.</strong> ${s.q}</p>
+<p style="color:#64748b">💡 Pista: ${s.hint}</p>
+<input id="s${i}" placeholder="Antwort schreiben...">
+<div id="sf${i}" class="feedback"></div>
+</div>
+`;
+});
+}
+
+function checkSentences(){
+let ok = 0;
+
+SENTENCES.forEach((s,i)=>{
+let input = document.getElementById("s"+i);
+let fb = document.getElementById("sf"+i);
+
+if(normalize(input.value) === normalize(s.a)){
+ok++;
+fb.className = "feedback correct";
+fb.innerText = "✅ Richtig!";
+} else {
+fb.className = "feedback wrong";
+fb.innerHTML = "❌ Richtige Antwort: <strong>" + s.a + "</strong>";
+}
+});
+
+document.getElementById("score2").innerText = ok;
+
+let fb = document.getElementById("feedback2");
+if(ok === SENTENCES.length){
+fb.className = "feedback correct";
+fb.innerText = "🎉 Sehr gut! Alles richtig.";
+} else {
+fb.className = "feedback wrong";
+fb.innerText = "Du hast " + ok + " von " + SENTENCES.length + " richtig.";
+}
+}
+
+function resetSentences(){
+SENTENCES.forEach((s,i)=>{
+document.getElementById("s"+i).value = "";
+document.getElementById("sf"+i).className = "feedback";
+});
+document.getElementById("score2").innerText = "0";
+document.getElementById("feedback2").className = "feedback";
+}
+
+startMultiple();
+renderSentences();
+</script>
+
+</body>
+</html>
