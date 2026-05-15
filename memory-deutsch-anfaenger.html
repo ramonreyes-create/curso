@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory – Deutsch Anfänger</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937}
+header{background:linear-gradient(135deg,#7c3aed,#1cb0f6);color:white;text-align:center;padding:60px 20px}
+header h1{font-size:3rem;margin-bottom:10px}
+header p{font-size:1.1rem}
+.container{max-width:1100px;margin:auto;padding:40px 20px}
+.stats{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:25px}
+.stat{background:white;padding:12px 18px;border-radius:16px;font-weight:bold;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+.game-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px}
+.card{height:120px;position:relative;transform-style:preserve-3d;transition:transform .5s;cursor:pointer}
+.card.flip{transform:rotateY(180deg)}
+.front,.back{position:absolute;width:100%;height:100%;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1rem;backface-visibility:hidden;box-shadow:0 8px 20px rgba(0,0,0,.08);padding:10px;text-align:center}
+.front{background:#7c3aed;color:white}
+.back{background:white;color:#111827;transform:rotateY(180deg)}
+.matched .back{background:#dcfce7;color:#166534}
+.finish{display:none;text-align:center;margin-top:40px;background:white;padding:30px;border-radius:24px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.finish h2{font-size:2.3rem;margin-bottom:15px}
+.restart-btn{background:#58cc02;color:white;border:none;padding:15px 24px;border-radius:16px;font-weight:bold;cursor:pointer;box-shadow:0 5px 0 #46a302;margin-top:15px}
+@media(max-width:700px){header h1{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<header>
+<h1>🧠 Memory Spiel</h1>
+<p>Begrüßungen und Grundwortschatz auf Deutsch</p>
+</header>
+
+<main class="container">
+<div class="stats">
+<div class="stat">Züge: <span id="moves">0</span></div>
+<div class="stat">Paare: <span id="pairs">0</span> / 8</div>
+</div>
+
+<div class="game-board" id="gameBoard"></div>
+
+<div class="finish" id="finishScreen">
+<h2>🎉 Super!</h2>
+<p>Du hast alle Paare gefunden.</p>
+<p>Züge: <strong id="finalMoves"></strong></p>
+<button class="restart-btn" onclick="startGame()">Neu starten</button>
+</div>
+</main>
+
+<script>
+const words = [
+["Hallo","Hola"],
+["Tschüss","Adiós"],
+["Guten Morgen","Buenos días"],
+["Danke","Gracias"],
+["Bitte","Por favor"],
+["sein","ser / estar"],
+["haben","tener"],
+["lernen","aprender"]
+];
+
+let cards = [];
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+let moves = 0;
+let pairs = 0;
+
+function shuffle(array){
+return array.sort(() => Math.random() - 0.5);
+}
+
+function startGame(){
+moves = 0;
+pairs = 0;
+document.getElementById("moves").innerText = "0";
+document.getElementById("pairs").innerText = "0";
+document.getElementById("finishScreen").style.display = "none";
+cards = [];
+
+words.forEach(pair => {
+cards.push({text: pair[0],pair: pair[1]});
+cards.push({text: pair[1],pair: pair[0]});
+});
+
+shuffle(cards);
+
+const board = document.getElementById("gameBoard");
+board.innerHTML = "";
+
+cards.forEach((cardData,index) => {
+const card = document.createElement("div");
+card.className = "card";
+card.dataset.text = cardData.text;
+card.dataset.pair = cardData.pair;
+
+card.innerHTML = `
+<div class="front">❓</div>
+<div class="back">${cardData.text}</div>
+`;
+
+card.addEventListener("click", () => flipCard(card));
+board.appendChild(card);
+});
+}
+
+function flipCard(card){
+if(lockBoard) return;
+if(card === firstCard) return;
+if(card.classList.contains("matched")) return;
+
+card.classList.add("flip");
+
+if(!firstCard){
+firstCard = card;
+return;
+}
+
+secondCard = card;
+moves++;
+document.getElementById("moves").innerText = moves;
+checkMatch();
+}
+
+function checkMatch(){
+const isMatch = firstCard.dataset.text === secondCard.dataset.pair;
+
+if(isMatch){
+firstCard.classList.add("matched");
+secondCard.classList.add("matched");
+
+pairs++;
+document.getElementById("pairs").innerText = pairs;
+
+resetCards();
+
+if(pairs === words.length){
+showFinish();
+}
+}else{
+lockBoard = true;
+
+setTimeout(() => {
+firstCard.classList.remove("flip");
+secondCard.classList.remove("flip");
+resetCards();
+},1000);
+}
+}
+
+function resetCards(){
+[firstCard, secondCard] = [null, null];
+lockBoard = false;
+}
+
+function showFinish(){
+document.getElementById("finalMoves").innerText = moves;
+document.getElementById("finishScreen").style.display = "block";
+}
+
+startGame();
+</script>
+
+</body>
+</html>
