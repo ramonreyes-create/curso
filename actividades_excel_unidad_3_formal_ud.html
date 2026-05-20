@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actividades de Excel - Unidad III</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f4f6f8;
+      color: #1f2933;
+    }
+    header {
+      background: #006b3f;
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    main {
+      max-width: 1000px;
+      margin: 24px auto;
+      padding: 0 16px 40px;
+    }
+    section {
+      background: white;
+      margin-bottom: 20px;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    h2 {
+      color: #006b3f;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    .objetivo {
+      background: #e8f5ee;
+      border-left: 5px solid #006b3f;
+      padding: 12px;
+      margin: 12px 0;
+    }
+    .tiempo {
+      display: inline-block;
+      background: #fbbf24;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #dbeafe;
+    }
+    .pasos li {
+      margin-bottom: 8px;
+    }
+    .formula {
+      background: #111827;
+      color: #f9fafb;
+      padding: 10px;
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      display: inline-block;
+      margin: 6px 0;
+    }
+    .producto {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 12px;
+      margin-top: 12px;
+    }
+    .evaluacion {
+      background: #eef2ff;
+      padding: 12px;
+      border-radius: 10px;
+    }
+    .print-note {
+      font-size: 0.9em;
+      color: #475569;
+    }
+    @media print {
+      body { background: white; }
+      section { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+      header { background: #006b3f !important; color: white !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Actividades Prácticas de Excel</h1>
+    <p>Unidad III: Herramienta de Productividad Excel</p>
+    <p>Clase online / trabajo guiado</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Propósito de las actividades</h2>
+      <p>Estas actividades permiten practicar el uso básico de Excel: manejo de hojas, formato de datos, fórmulas, funciones, filtros, gráficos, configuración de página e impresión.</p>
+      <div class="objetivo">
+        <strong>Objetivo general:</strong> elaborar una planilla de cálculo simple, aplicar fórmulas y funciones, organizar datos y representar información mediante gráficos.
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad 1: Crear y organizar un libro de Excel</h2>
+      <span class="tiempo">Tiempo sugerido: 8 minutos</span>
+      <p><strong>Instrucciones:</strong></p>
+      <ol class="pasos">
+        <li>Abra Excel y cree un libro nuevo.</li>
+        <li>Renombre la Hoja 1 como <strong>Notas</strong>.</li>
+        <li>Agregue una segunda hoja y nómbrela <strong>Resumen</strong>.</li>
+        <li>Cambie el color de la etiqueta de cada hoja.</li>
+        <li>Guarde el archivo con el nombre <strong>Actividad_Excel_SuNombre</strong>.</li>
+      </ol>
+      <div class="producto">
+        <strong>Producto esperado:</strong> un libro de Excel con dos hojas correctamente nombradas y guardadas.
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad 2: Ingreso de datos y formato de tabla</h2>
+      <span class="tiempo">Tiempo sugerido: 10 minutos</span>
+      <p>En la hoja <strong>Notas</strong>, copie la siguiente tabla:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Promedio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ana</td><td>Rojas</td><td>5,8</td><td>6,2</td><td></td></tr>
+          <tr><td>Carlos</td><td>Ledezma</td><td>4,5</td><td>5,3</td><td></td></tr>
+          <tr><td>Sofía</td><td>Pérez</td><td>6,1</td><td>6,4</td><td></td></tr>
+          <tr><td>Mario</td><td>Zúñiga</td><td>3,9</td><td>4,8</td><td></td></tr>
+          <tr><td>Valentina</td><td>Morales</td><td>6,5</td><td>6,7</td><td></td></tr>
+        </tbody>
+      </table>
+      <ol class="pasos">
+        <li>Ajuste el ancho de las columnas para que se visualice todo el contenido.</li>
+        <li>Aplique negrita a los encabezados.</li>
+        <li>Agregue bordes a toda la tabla.</li>
+        <li>Convierta el rango en tabla desde <strong>Insertar &gt; Tabla</strong>.</li>
+        <li>Seleccione un estilo de tabla.</li>
+      </ol>
+      <div class="producto">
+        <strong>Producto esperado:</strong> tabla ordenada, legible y con formato visual claro.
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad 3: Fórmulas y funciones básicas</h2>
+      <span class="tiempo">Tiempo sugerido: 10 minutos</span>
+      <p>Calcule el promedio de cada estudiante utilizando la función:</p>
+      <div class="formula">=PROMEDIO(C2:D2)</div>
+      <p>Luego copie la fórmula hacia abajo utilizando el controlador de relleno.</p>
+      <h3>Funciones adicionales</h3>
+      <p>Debajo de la tabla, calcule:</p>
+      <ul>
+        <li>Promedio general del curso.</li>
+        <li>Nota máxima.</li>
+        <li>Nota mínima.</li>
+        <li>Cantidad de estudiantes.</li>
+      </ul>
+      <p>Utilice estas funciones:</p>
+      <div class="formula">=PROMEDIO(E2:E6)</div><br />
+      <div class="formula">=MAX(E2:E6)</div><br />
+      <div class="formula">=MIN(E2:E6)</div><br />
+      <div class="formula">=CONTAR(E2:E6)</div>
+      <div class="producto">
+        <strong>Producto esperado:</strong> tabla con promedios calculados y resumen estadístico básico.
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad 4: Filtros de información</h2>
+      <span class="tiempo">Tiempo sugerido: 7 minutos</span>
+      <p>Aplique filtros a la tabla y responda:</p>
+      <ol class="pasos">
+        <li>Filtre los estudiantes cuyo promedio sea mayor o igual a 5,5.</li>
+        <li>Filtre los apellidos que comiencen o terminen con una letra específica.</li>
+        <li>Ordene los promedios de mayor a menor.</li>
+      </ol>
+      <p><strong>Preguntas:</strong></p>
+      <ul>
+        <li>¿Cuántos estudiantes tienen promedio igual o superior a 5,5?</li>
+        <li>¿Quién obtuvo el promedio más alto?</li>
+        <li>¿Quién necesita reforzamiento?</li>
+      </ul>
+      <div class="producto">
+        <strong>Producto esperado:</strong> tabla filtrada y respuestas escritas en la hoja <strong>Resumen</strong>.
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad 5: Crear un gráfico</h2>
+      <span class="tiempo">Tiempo sugerido: 8 minutos</span>
+      <p>Cree un gráfico que represente los promedios de los estudiantes.</p>
+      <ol class="pasos">
+        <li>Seleccione las columnas <strong>Nombre</strong> y <strong>Promedio</strong>.</li>
+        <li>Haga clic en <strong>Insertar</strong>.</li>
+        <li>Seleccione un gráfico de columnas.</li>
+        <li>Cambie el título del gráfico a <strong>Promedios del curso</strong>.</li>
+        <li>Modifique el diseño o estilo del gráfico.</li>
+      </ol>
+      <div class="producto">
+        <strong>Producto esperado:</strong> gráfico de columnas claro y con título adecuado.
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad 6: Formato condicional</h2>
+      <span class="tiempo">Tiempo sugerido: 7 minutos</span>
+      <p>Aplique formato condicional a la columna <strong>Promedio</strong>.</p>
+      <ol class="pasos">
+        <li>Seleccione los promedios.</li>
+        <li>Haga clic en <strong>Inicio &gt; Formato condicional</strong>.</li>
+        <li>Marque con un color los promedios menores a 4,0.</li>
+        <li>Marque con otro color los promedios mayores o iguales a 6,0.</li>
+      </ol>
+      <div class="producto">
+        <strong>Producto esperado:</strong> datos destacados automáticamente según criterio.
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad 7: Configuración de página e impresión</h2>
+      <span class="tiempo">Tiempo sugerido: 5 minutos</span>
+      <ol class="pasos">
+        <li>Configure la orientación de la hoja en horizontal.</li>
+        <li>Ajuste los márgenes.</li>
+        <li>Agregue un encabezado con su nombre.</li>
+        <li>Revise la vista previa de impresión.</li>
+        <li>Guarde el archivo final.</li>
+      </ol>
+      <div class="producto">
+        <strong>Producto esperado:</strong> archivo listo para imprimir o enviar digitalmente.</div>
+    </section>
+
+    <section>
+      <h2>Evaluación rápida</h2>
+      <div class="evaluacion">
+        <p>Marque con una X lo que logró realizar:</p>
+        <ul>
+          <li>☐ Renombré y organicé hojas.</li>
+          <li>☐ Ingresé datos correctamente.</li>
+          <li>☐ Apliqué formato a una tabla.</li>
+          <li>☐ Usé fórmulas y funciones.</li>
+          <li>☐ Apliqué filtros.</li>
+          <li>☐ Creé un gráfico.</li>
+          <li>☐ Usé formato condicional.</li>
+          <li>☐ Configuré la hoja para impresión.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Actividad de repaso optativa</h2>
+      <p><strong>Actividad opcional:</strong> cree una nueva tabla con datos de gastos personales para repasar fórmulas, formato de tabla y suma total.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio unitario</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Cuaderno</td><td>2</td><td>1500</td><td></td></tr>
+          <tr><td>Lápiz</td><td>5</td><td>300</td><td></td></tr>
+          <tr><td>Carpeta</td><td>1</td><td>1200</td><td></td></tr>
+          <tr><td>Mochila</td><td>1</td><td>18000</td><td></td></tr>
+        </tbody>
+      </table>
+      <p>Calcule el total por producto utilizando:</p>
+      <div class="formula">=B2*C2</div>
+      <p>Luego calcule el total general con:</p>
+      <div class="formula">=SUMA(D2:D5)</div>
+      <div class="producto">
+        <strong>Producto esperado:</strong> planilla de gastos con totales y formato adecuado. Esta actividad puede realizarse como práctica adicional o tarea de refuerzo.
+      </div>
+    </section>
+
+    <p class="print-note">Material diseñado para una clase práctica basada en la Unidad III: Herramienta de Productividad Excel.</p>
+  </main>
+</body>
+</html>
